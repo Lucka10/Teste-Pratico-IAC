@@ -1,47 +1,48 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import Contact from './components/Contact.vue'
+
+const data = ref([
+  {nome: 'teste', email:'teste@teste',telefone:'12313131',date:'12/12/1977'},
+  {nome: 'teste1', email:'teste@teste',telefone:'555555',date:'31/11/2023'},
+  {nome: 'teste2', email:'teste@teste',telefone:'4444',date:'11/8/222'},
+  {nome: 'teste3', email:'teste@teste',telefone:'76755675',date:'24/7/4645'},
+  {nome: 'teste3', email:'teste@teste',telefone:'1231231231443',date:'27/5/2000'},
+]
+)
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
+  <header class="d-flex flex-wrap justify-content-center py-3 ">
+    <h1 class="fw-bold fw-bold text-body-emphasis" >Agenda de Contatos</h1>
   </header>
 
-  <main>
-    <TheWelcome />
-  </main>
+  <div class="container"> 
+    <div class="container d-flex justify-content-between">
+      <h2 class="fw-bold text-body-emphasis">Contatos Cadastrados</h2>
+      <button class="btn btn-success rounded px-3 mb-2" >
+        <img src="/src/assets/whiteplus.png" width="10px" height="10px">
+        Novo
+      </button>
+    </div>
+    <div class="container">
+      <div class="mb-3" v-for="contato,key in data" >
+        <Contact :numero="key+1"
+          :nome="contato.nome"
+          :email="contato.email"
+          :telefone="contato.telefone"
+          :date="contato.date"
+      ></Contact>
+      </div>
+
+      
+    </div>
+
+  </div>
+
+  
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
 </style>
