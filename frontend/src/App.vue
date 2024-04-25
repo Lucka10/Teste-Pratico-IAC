@@ -2,24 +2,11 @@
 import { ref } from 'vue'
 import HelloWorld from './components/HelloWorld.vue'
 import Contact from './components/Contact.vue'
+import axios from 'axios';
 
-const showmodal = ref(false)
-const titulo = ref('')
-const novo_contato = function(title:string) {
-  showmodal.value = !showmodal.value
-  if (title) {
-    titulo.value = title
-  }
-}
-const dados = ref({
-  nome:'',
-  email:'',
-  telefone:'',
-  data:'',
-})
-const criar_contato = function() { 
 
-}
+axios.get('http://127.0.0.1:8000/agenda')
+.then( (msg:string) => console.log('GET:',msg))
 
 
 
@@ -31,6 +18,38 @@ const data = ref([
   {nome: 'teste3', email:'teste@teste',telefone:'1231231231443',date:'27/5/2000'},
 ]
 )
+
+
+
+
+const showmodal = ref(false)
+const titulo = ref('')
+const novo_contato = function(title:string) {
+  showmodal.value = !showmodal.value
+  if (title) {
+    titulo.value = title
+  }
+}
+
+const dados = ref({
+  nome:'',
+  email:'',
+  telefone:'',
+  nasc:'',
+})
+
+
+
+
+const criar_contato = function() { 
+  console.log(dados.value)
+  axios.post('http://127.0.0.1:8000/agenda/novo', dados.value)
+  .then((response) => {
+    console.log("RESPOSTA AQUI:", response)
+  })
+}
+
+
 </script>
 
 <template>
@@ -52,23 +71,26 @@ const data = ref([
         <div class="d-flex no-wrap gap-4"> 
           <div class="d-flex no-wrap flex-grow-1">
             <label class= "fw-bold  d-flex align-self-center" for=nome>Nome:</label>
-            <input type="text" class="form-control p-1" id="nome">
+            <input type="text" class="form-control p-1" id="nome" 
+            v-model="dados.nome"
+            @input="console.log(dados)">
           </div>
           
           <div class="d-flex no-wrap flex-grow-1">
             <label class= "fw-bold  d-flex align-self-center" for=nome>Email:</label>
-            <input type="email" class="form-control p-1" id="email">
+            <input type="email" class="form-control p-1" id="email" 
+            v-model="dados.email">
           </div>
         </div>
         <div class="d-flex no-wrap gap-4"> 
           <div class="d-flex no-wrap flex-grow-1">
             <label class= "fw-bold d-flex align-self-center" for=tele>Telefone:</label>
-            <input type="text" class="form-control p-1" style="width:14em;" id="tele">
+            <input type="text" class="form-control p-1" style="width:14em;" id="tele" v-model="dados.telefone">
           </div>
 
           <div class="d-flex no-wrap flex-grow-1" >
-            <label class= "fw-bold" for=data>Data de Nascimento:</label>
-            <input type="date" class="form-control p-1" id="data">
+            <label class="fw-bold" for=data>Data de Nascimento:</label>
+            <input type="date" class="form-control p-1" id="data" v-model="dados.nasc">
           </div>
         </div>
         
@@ -81,7 +103,7 @@ const data = ref([
 
       <div class="w-100 d-flex align-self-end justify-content-between align-items-center p-3 border-top  bw-3">
         <button class="btn btn-danger fw-bold " @click="novo_contato('')">Cancelar</button>
-        <button class="btn btn-success bi bi-plus-lg"> Salvar</button>
+        <button class="btn btn-success bi bi-plus-lg" @click="criar_contato()">Salvar</button>
       </div>
     </div>
 
