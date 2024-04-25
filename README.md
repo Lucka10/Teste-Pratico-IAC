@@ -22,3 +22,12 @@ Produção:
 npm run build
 npm run start
 ```
+
+### backend
+- frameworks
+    - Django
+
+iniciar servidor
+```sh
+python manage.py runserver
+```
