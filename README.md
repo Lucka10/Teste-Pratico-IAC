@@ -3,10 +3,12 @@
 ## Agenda de Contatos
 
 ### Frontend
-- Frameworks
+- dependencias
     - Vue.js
     - Bootstraps CDN
     - Typescript
+    - axios
+    - input-mask
 
 Desenvolvimento:
 ```sh
