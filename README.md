@@ -3,7 +3,7 @@
 ## Agenda de Contatos
 
 ### Frontend
-- dependencias
+- Frameworks
     - Vue.js
     - Bootstraps CDN
     - Typescript
@@ -20,13 +20,13 @@ npm run build
 npm run start
 ```
 
-### backend
-
+### Backend
+requirements.txt
 ```sh
 cd backend
 pip install -r requirements.txt
 ```
-- frameworks
+- Frameworks
     - Django
 - Banco de Dados
     - Postgres 
