@@ -149,5 +149,28 @@ LOGGING = {
         }
     }
 }
+
+#CSRF_TRUSTED_ORIGINS = [
+#    'http://localhost:5173',
+#],
+#ALLOWED_HOSTS = [
+#    'localhost',
+#],
+#CORS_ORIGIN_WHITELIST = [
+#    'http://localhost:5173',
+#]
 CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOWED_ORIGINS = ['http://localhost:5173']
+#CORS_ALLOW_CREDENTIALS = True
+#CORS_ALLOWED_ORIGINS = ["http://localhost:5173",]
+#CORS_ALLOW_METHODS = [
+#    'GET',
+#    'POST',
+#    'PUT',
+#    'DELETE',
+#    'OPTIONS'  # Include OPTIONS to handle preflight requests
+#]
+#
+#CORS_ALLOW_HEADERS = [
+#    'X-CSRFToken',  # Include any custom headers your frontend sends
+#
+#]

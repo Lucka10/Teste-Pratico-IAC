@@ -8,7 +8,6 @@
     - Bootstraps CDN
     - Typescript
     - axios
-    - input-mask
 
 Desenvolvimento:
 ```sh
@@ -28,6 +27,8 @@ npm run start
 ### backend
 - frameworks
     - Django
+- Banco de Dados
+    - Postgres 
 
 iniciar servidor
 ```sh
