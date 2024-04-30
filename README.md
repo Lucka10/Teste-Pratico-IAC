@@ -26,7 +26,6 @@ npm run start
 cd backend
 pip install -r requirements.txt
 ```
-''
 - frameworks
     - Django
 - Banco de Dados
