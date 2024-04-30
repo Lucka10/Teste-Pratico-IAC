@@ -2,9 +2,6 @@ from django.http import HttpResponse,JsonResponse,FileResponse, Http404
 from django.core.exceptions import ObjectDoesNotExist
 from django.views.decorators.csrf import csrf_exempt
 from agenda.models import Contato
-
-from PIL import Image
-
 import json
 
 @csrf_exempt
