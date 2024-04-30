@@ -13,10 +13,6 @@ Desenvolvimento:
 ```sh
 npm run dev
 ```
-Testes:
-```sh
-npm run test:unit
-```
 
 Produção:
 ```sh
@@ -25,6 +21,12 @@ npm run start
 ```
 
 ### backend
+
+```sh
+cd backend
+pip install -r requirements.txt
+```
+''
 - frameworks
     - Django
 - Banco de Dados
