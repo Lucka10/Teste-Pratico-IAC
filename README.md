@@ -3,6 +3,9 @@
 ## Agenda de Contatos
 
 ### Frontend
+```sh
+cd frontend
+```
 - Frameworks
     - Vue.js
     - Bootstraps CDN
